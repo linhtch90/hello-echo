@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-hello-echo-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-hello-echo-app-pod
+  template:
+    metadata:
+      labels:
+        app: my-hello-echo-app-pod
+    spec:
+      containers:
+      - name: my-hello-echo-app-container
+        image: docker.io/linhtch90/hello-echo-app:1.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"        
+  
