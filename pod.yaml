@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-hello-echo-app
+  labels:
+    name: my-hello-echo-app-pod
+spec:
+  containers:
+  - name: my-hello-echo-app-pod
+    image: docker.io/linhtch90/hello-echo-app:1.0.0
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "250m"
+    ports:
+      - containerPort: 15000
